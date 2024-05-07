@@ -1,27 +1,20 @@
-public class Pelicula {
-    String nombre;
-    int fechaLanzamiento;
-    int duracionEnMinutos;
-    boolean incluidoEnElPlan;
-    private double sumaDeLasEvaluaciones; // private portege nuestro codigo de los usuarios MODIFICADORES DE ACCESO
-    private int totalDeLasEvaluaciones;
+package com.aluracursos.screenmatch.modelos;
 
-    int getTotalDeLasEvaluaciones() {
-        return  totalDeLasEvaluaciones;
+import com.aluracursos.screenmatch.calculos.Clasificacion;
+
+public class Pelicula extends Titulo implements Clasificacion { // no puede haber 2 extends o dos madres pero si un implements
+    private String director;
+
+    public String getDirector() {
+        return director;
     }
 
-    void muestraFichaTecnica() { //Sout para todos
-        System.out.println("El nombre de la pelicula es: " + nombre);
-        System.out.println("Su Fecha de lanzamiento: " + fechaLanzamiento);
-        System.out.println("Su Duracion es de: " + duracionEnMinutos);
+    public void setDirector(String director) {
+        this.director = director;
     }
 
-    void evalua(double nota){
-        sumaDeLasEvaluaciones += nota;
-        totalDeLasEvaluaciones++;
-    }
-
-    double calculaMedia() {
-        return sumaDeLasEvaluaciones / totalDeLasEvaluaciones;
+    @Override
+    public int getClasificacion() { // creamos el resultado
+        return (int) (calculaMedia() / 2);
     }
 }
