@@ -5,6 +5,10 @@ public class Serie extends Titulo{
     int episodioPorTemporadas;
     int minutosPorEpisodio;
 
+    public Serie(String nombre, int fechaLanzamiento) {
+        super(nombre, fechaLanzamiento);
+    }
+
     public int getDuracionEnMinutos() {
         return temporadas * episodioPorTemporadas * minutosPorEpisodio;
     }
@@ -34,5 +38,10 @@ public class Serie extends Titulo{
 
     public void setMinutosPorEpisodio(int minutosPorEpisodio) {
         this.minutosPorEpisodio = minutosPorEpisodio;
+    }
+
+    @Override
+    public String toString() {
+        return "Serie: "+this.getNombre()+ "("+this.getFechaLanzamiento()+")"; // para quitar el com.alura.screematch.serie@35435
     }
 }
